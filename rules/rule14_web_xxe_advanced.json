@@ -1,0 +1,13 @@
+{
+  "name": "Detect Advanced XML External Entity (XXE) and Wrapper Exploitation",
+  "id": "f83a1d12-c2da-4ff1-88f3-162075e11122",
+  "description": "Veb server loqlarında XML datası daxilində PHP wrapper-ləri və ya Out-of-Band (OOB) müraciətləri ilə edilən mürəkkəb XXE hücumlarını aşkar edir.",
+  "search": "index=web_logs (\"<!ENTITY\" OR \"<!DOCTYPE\" OR \"SYSTEM\" OR \"PUBLIC\") (\"file:///\" OR \"php://filter\" OR \"expect://\" OR \"data://\" OR \"gopher://\" OR \"dict://\")",
+  "cron_schedule": "*/5 * * * *",
+  "is_scheduled": "1",
+  "alert_type": "number of events",
+  "alert_comparator": "greater than",
+  "alert_threshold": "0",
+  "tags": ["attack.initial-access", "attack.t1190"],
+  "false_positives": ["Sistemlər arası mürəkkəb legitim XML inteqrasiya sorğuları"]
+}
