@@ -1,0 +1,13 @@
+{
+  "name": "Detect Advanced Web Shell Upload and Bypass Attempts",
+  "id": "c2441d8c-84d6-4122-bd5d-4f0494dfb96b",
+  "description": "Filtrlərdən yayınmaq üçün Double Extension, Null Byte və ya alternativ skript genişlənmələri (php5, phtml, py, pl) istifadə edərək edilən zərərli fayl yükləmə cəhdlərini aşkar edir.",
+  "search": "index=web_logs cs_method=\"POST\" (uri_query=\"*.php*\" OR uri_query=\"*.phtml*\" OR uri_query=\"*.php5*\" OR uri_query=\"*.py*\" OR uri_query=\"*.pl*\" OR uri_query=\"*.asp*\" OR uri_query=\"*.jsp*\") (uri_query=\"*%00*\" OR uri_query=\"*%20*\" OR uri_query=\"*.png.*\" OR uri_query=\"*.jpg.*\" OR uri_query=\"*.gif.*\")",
+  "cron_schedule": "*/5 * * * *",
+  "is_scheduled": "1",
+  "alert_type": "number of events",
+  "alert_comparator": "greater than",
+  "alert_threshold": "0",
+  "tags": ["attack.persistence", "attack.t1505.003"],
+  "false_positives": ["Admin tərəfindən bilərəkdən sənədləşmə və ya arxiv məqsədilə yüklənən qəribə adlı fayllar"]
+}
