@@ -1,0 +1,17 @@
+{
+  "name": "Detect SQL Injection Strings In URI",
+  "id": "5513deaf-f49a-46c2-a6c8-3f111b5cb453",
+  "description": "Veb server loqlarında GET müraciətləri zamanı edilən potensial SQL inyeksiya cəhdlərini aşkar edir. 404 statuslu cavablar istisna edilmişdir.",
+  "search": "index=web_logs cs_method=\"GET\" status!=404 (\"@@version\" OR \"%271%27%3D%271\" OR \"=select \" OR \"=select(\" OR \"=select%20\" OR \"concat_ws(\" OR \"CONCAT(0x\" OR \"from mysql.innodb_table_stats\" OR \"from%20mysql.innodb_table_stats\" OR \"group_concat(\" OR \"information_schema.tables\" OR \"json_arrayagg(\" OR \"or 1=1#\" OR \"or%201=1#\" OR \"order by \" OR \"order%20by%20\" OR \"select * \" OR \"select database()\" OR \"select version()\" OR \"select%20*%20\" OR \"select%20database()\" OR \"select%20version()\" OR \"select%28sleep%2810%29\" OR \"SELECTCHAR(\" OR \"table_schema\" OR \"UNION ALL SELECT\" OR \"UNION SELECT\" OR \"UNION%20ALL%20SELECT\" OR \"UNION%20SELECT\" OR \"'1'='1\")",
+  "cron_schedule": "*/5 * * * *",
+  "is_scheduled": "1",
+  "alert_type": "number of events",
+  "alert_comparator": "greater than",
+  "alert_threshold": "0",
+  "tags": ["attack.initial-access", "attack.t1190"],
+  "false_positives": [
+    "Saytın axtarış hissəsində istifadəçilərin etdiyi bəzi legitim axtarışlar",
+    "JavaScript və CSS fayllarının daxilindəki təsadüfi oxşar simvollar",
+    "Daxili zəiflik skanerləri (vulnerability scanners)"
+  ]
+}
