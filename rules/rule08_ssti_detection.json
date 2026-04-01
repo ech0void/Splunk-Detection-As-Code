@@ -1,0 +1,16 @@
+{
+  "name": "Detect Server Side Template Injection Strings",
+  "id": "ada3bc4f-f0fd-42b9-ba91-e105e8af7342",
+  "description": "Veb server loqlarında GET müraciətləri zamanı edilən potensial SSTI (Server-Side Template Injection) cəhdlərini aşkar edir. 404 statuslu cavablar istisna edilmişdir.",
+  "search": "index=web_logs cs_method=\"GET\" status!=404 (\"={{\" OR \"=%7B%7B\" OR \"=${RequestedURL}\" OR \"=$%7B\" OR \"=<%=\" OR \"=%3C%25=\" OR \"=@(\" OR \"freemarker.template.utility.Execute\" OR \".getClass().forName('javax.script.ScriptEngineManager')\" OR \"T(org.apache.commons.io.IOUtils)\")",
+  "cron_schedule": "*/5 * * * *",
+  "is_scheduled": "1",
+  "alert_type": "number of events",
+  "alert_comparator": "greater than",
+  "alert_threshold": "0",
+  "tags": ["attack.defense-evasion", "attack.t1221"],
+  "false_positives": [
+    "Saytın axtarış hissəsində istifadəçilərin etdiyi legitim axtarışlar",
+    "Daxili zəiflik skanerləri (vulnerability scanners)"
+  ]
+}
