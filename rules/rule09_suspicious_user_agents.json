@@ -1,0 +1,13 @@
+{
+  "name": "Detect Suspicious User-Agents Related To Recon Tools",
+  "id": "19aa4f58-94ca-45ff-bc34-92e533c0994a",
+  "description": "Veb server loqlarında kəşfiyyat və skan alətlərinə (Wfuzz, WPScan, Recon-ng və s.) aid məlum şübhəli standart User-Agent başlıqlarını aşkar edir.",
+  "search": "index=web_logs (user_agent=\"*Wfuzz/*\" OR user_agent=\"*WPScan v*\" OR user_agent=\"*Recon-ng/v*\" OR user_agent=\"*GIS - AppSec Team - Project Vision*\")",
+  "cron_schedule": "*/5 * * * *",
+  "is_scheduled": "1",
+  "alert_type": "number of events",
+  "alert_comparator": "greater than",
+  "alert_threshold": "0",
+  "tags": ["attack.initial-access", "attack.t1190"],
+  "false_positives": ["Məlum deyil"]
+}
