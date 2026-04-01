@@ -1,0 +1,16 @@
+{
+  "name": "Detect Path Traversal Exploitation Attempts",
+  "id": "7745c2ea-24a5-4290-b680-04359cb84b35",
+  "description": "Web server müraciətlərində həssas sistem fayllarına daxil olmaq üçün edilən Path Traversal (Directory Traversal) cəhdlərini aşkar edir.",
+  "search": "index=web_logs (uri_query=\"*../../../../../lib/password*\" OR uri_query=\"*../../../../windows/*\" OR uri_query=\"*../../../etc/*\" OR uri_query=\"*..%252f..%252f..%252fetc%252f*\" OR uri_query=\"*..%c0%af..%c0%af..%c0%afetc%c0%af*\" OR uri_query=\"*%252e%252e%252fetc%252f*\")",
+  "cron_schedule": "*/5 * * * *",
+  "is_scheduled": "1",
+  "alert_type": "number of events",
+  "alert_comparator": "greater than",
+  "alert_threshold": "0",
+  "tags": ["attack.initial-access", "attack.t1190"],
+  "false_positives": [
+    "İnternetə açıq sistemlərdə davamlı olaraq görülməsi gözlənilir",
+    "Daxili zəiflik skanerlərinin (vulnerability scanners) fəaliyyəti"
+  ]
+}
