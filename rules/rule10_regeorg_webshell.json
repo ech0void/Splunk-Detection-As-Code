@@ -1,0 +1,13 @@
+{
+  "name": "Detect Webshell ReGeorg Activity Via Web Logs",
+  "id": "2ea44a60-cfda-11ea-87d0-0242ac130003",
+  "description": "Boş referer və user-agent başlıqları ilə birlikdə ReGeorg veb qabığına xas spesifik URL parametr müraciətlərini aşkar edir.",
+  "search": "index=web_logs cs_method=\"POST\" (user_agent=\"\" OR isnull(user_agent)) (referer=\"\" OR isnull(referer)) (uri_query=\"*cmd=read*\" OR uri_query=\"*connect&target*\" OR uri_query=\"*cmd=connect*\" OR uri_query=\"*cmd=disconnect*\" OR uri_query=\"*cmd=forward*\")",
+  "cron_schedule": "*/5 * * * *",
+  "is_scheduled": "1",
+  "alert_type": "number of events",
+  "alert_comparator": "greater than",
+  "alert_threshold": "0",
+  "tags": ["attack.persistence", "attack.t1505.003"],
+  "false_positives": ["ReGeorg ilə eyni URL parametrlərindən istifadə edən legitim veb tətbiqlər"]
+}
