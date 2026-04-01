@@ -1,0 +1,13 @@
+{
+  "name": "Detect Source Code Enumeration by Keyword",
+  "id": "953d460b-f810-420a-97a2-cfca4c98e602",
+  "description": "Veb serverlərdə gizli unudulmuş .git qovluqlarına müraciət edərək mənbə kodunu ələ keçirmə cəhdlərini aşkar edir.",
+  "search": "index=web_logs uri_query=\"*.git/*\" OR uri=\"*.git/*\"",
+  "cron_schedule": "*/5 * * * *",
+  "is_scheduled": "1",
+  "alert_type": "number of events",
+  "alert_comparator": "greater than",
+  "alert_threshold": "0",
+  "tags": ["attack.discovery", "attack.t1083"],
+  "false_positives": ["Məlum deyil"]
+}
