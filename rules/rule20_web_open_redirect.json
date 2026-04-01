@@ -1,0 +1,13 @@
+{
+  "name": "Detect Advanced Open Redirect Exploitation",
+  "id": "e83aa0b2-30b1-4d62-8bf3-ab73689efe70",
+  "description": "İstifadəçiləri fişinq saytlarına yönləndirmək üçün veb parametr müraciətlərində edilən Open Redirect və URL manipulyasiya cəhdlərini aşkar edir.",
+  "search": "index=web_logs cs_method=\"GET\" (uri_query=\"*url=http*\" OR uri_query=\"*redirect=http*\" OR uri_query=\"*next=http*\" OR uri_query=\"*dest=*\" OR uri_query=\"*destination=*\") (uri_query=\"*//\" OR uri_query=\"*/\\\\\" OR uri_query=\"*url=//*\")",
+  "cron_schedule": "*/5 * * * *",
+  "is_scheduled": "1",
+  "alert_type": "number of events",
+  "alert_comparator": "greater than",
+  "alert_threshold": "0",
+  "tags": ["attack.initial-access", "attack.t1190"],
+  "false_positives": ["Saytın daxili legitim modullarının kənar qorunan linklərə yönləndirmə etməsi"]
+}
