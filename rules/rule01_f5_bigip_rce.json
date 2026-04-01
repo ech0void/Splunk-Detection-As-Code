@@ -1,0 +1,13 @@
+{
+  "name": "Detect F5 BIG-IP iControl Rest API Command Execution",
+  "id": "85254a62-22be-4239-b79c-2ec17e566c37",
+  "description": "F5 BIG-IP iControl Rest API-nin 'bash' endpointinə edilən POST sorğularını aşkar edir. Bu endpoint cihaz üzərində komandaların icrasına icazə verir.",
+  "search": "index=web_logs cs_method=\"POST\" uri_query=\"*/mgmt/tm/util/bash\"",
+  "cron_schedule": "*/5 * * * *",
+  "is_scheduled": "1",
+  "alert_type": "number of events",
+  "alert_comparator": "greater than",
+  "alert_threshold": "0",
+  "tags": ["attack.execution", "attack.t1190", "attack.initial-access"],
+  "false_positives": ["İnzibati məqsədlər üçün BIG IP REST API-nin qanuni istifadəsi"]
+}
